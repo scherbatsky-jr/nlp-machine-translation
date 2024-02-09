@@ -1,0 +1,26 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+}
+
+.translation-form {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-gap: 2rem;
+}
+
+textarea {
+    height: 10rem !important;
+    padding: 1rem;
+    width: 25rem !important;
+}
+
+.submit {
+    cursor: pointer;
+    height: fit-content;
+    width: fit-content;
+    padding: 1rem;
+}
