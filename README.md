@@ -48,6 +48,8 @@ Run the flask app using command
 
 `python3 main.py`
 
+The app will be available at http://localhost:5000
+
 ### Demo
 ![External GIF](media/demo.png)
 
