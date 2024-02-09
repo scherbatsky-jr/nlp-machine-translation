@@ -91,4 +91,4 @@ def index():
     return render_template('index.html', translated_text = translation_result, english_text=english_text)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5000)
