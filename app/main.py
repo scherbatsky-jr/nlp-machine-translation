@@ -62,12 +62,10 @@ def index():
 
         # Tokenize and transform the input sentence to tensors
         input = text_transform[SRC_LANGUAGE](english_text).to(device)
-        print(input)
         output = text_transform[TRG_LANGUAGE]("").to(device)
         input = input.reshape(1,-1)
         output = output.reshape(1,-1)
 
-        # Perform model inference
         with torch.no_grad():
             output, _ = model(input, output)
 
@@ -76,21 +74,16 @@ def index():
         output = output[1:]
         print(output)
         output_max = output.argmax(1)
-        print("OutputMax",output_max)
         mapping = vocab_transform[TRG_LANGUAGE].get_itos()
 
-        # # Save the input sentence to the list of previous queries
-        # previous_queries.append(english_text)
         translation_result = []
 
-        # Process the output tokens
         for token in output_max:
             token_str = mapping[token.item()]
             if token_str not in ['[CLS]', '[SEP]', '[EOS]','<eos>']:
                 translation_result.append(token_str)
                 print(translation_result)
 
-        # Join the list of tokens into a single string
         translation_result = ' '.join(translation_result)
 
         print(translation_result)
